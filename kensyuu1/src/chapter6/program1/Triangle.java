@@ -11,10 +11,13 @@ class Triangle extends Polygon {
     }
 
     public void draw() {
-        System.out.println("[三角形を描画] 点1(" + p1.x + "," + p1.y + ")から点2(" + p2.x + "," + p2.y + ")、点3(" + p3.x + "," + p3.y + ")の三角形");
+        System.out.println("[三角形を描画] 点1(" + p1.getX() + "," + p1.getY() + ")から点2(" + p2.getX() + "," + p2.getY() + ")、点3(" + p3.getX() + "," + p3.getY() + ")の三角形");
     }
 
     public double getPerimeter() {
-        return p1.distance(p2) + p2.distance(p3) + p3.distance(p1);
+    	Line line1 = new Line(p1.getX(), p1.getY(), p2.getX(), p2.getY());
+        Line line2 = new Line(p2.getX(), p2.getY(), p3.getX(), p3.getY());
+        Line line3 = new Line(p3.getX(), p3.getY(), p1.getX(), p1.getY());
+        return line1.getPerimeter() + line2.getPerimeter() + line3.getPerimeter();
     }
 }
